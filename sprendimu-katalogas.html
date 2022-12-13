@@ -277,15 +277,28 @@
 	  </div>
 	</div>
 	<!-- End Success Modal -->
-
+	
+	<!-- cookie warning toast -->
+	<div class="fixed-bottom p-4">
+		<div class="toast bg-dark text-white w-100 mw-100" role="alert" data-autohide="false">
+			<div class="toast-body p-4 d-flex flex-column">
+				<h4>Cookie Warning</h4>
+				<p>
+				This website stores data such as cookies to enable site functionality including analytics and personalization. By using this website, you automatically accept that we use cookies. 
+				</p>
+				<div class="ml-auto">
+					<button type="button" class="btn btn-outline-light mr-3" id="btnDeny">
+						Deny
+					</button>
+					<button type="button" class="btn btn-light" id="btnAccept">
+						Accept
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
   </main><!-- End #main -->
-  
-  <div class="alert alert-info alert-dismissible none" role="alert" id="my_alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">×</span>
-  </button>
-  <strong>I'm a alert</strong>
-</div>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -367,11 +380,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   
-  <!-- Bootstrap JS File -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-  
   <!-- Success Modal -->
   <script>
 	$(document).ready(function() {
@@ -382,75 +390,70 @@
 
 });
   </script>
-
+  
+  <!-- Tooltip -->
+  <script>
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	  return new bootstrap.Tooltip(tooltipTriggerEl)
+	})
+  </script>
+  
   <!-- Cookies -->
   <script>
-	function showUnDismissedAlerts(){
-        //if there is no localStorage, just show all alerts and return
-        if (!localStorage.getItem(`dismissedAlerts_${document.title}`)) {
-            $('.alert').show()
-            return;
-        }
-        //get dismissed alert ID's
-        let dismissedAlerts = JSON.parse(localStorage.getItem(`dismissedAlerts_${document.title}`))
-        //look for each alert if it was dismissed
-        $('.alert').map((index, el) => {
-            //get the alert ID
-            let alertId = $(el).attr('id')
-            //if there is no ID, return (next alert)
-            if (!alertId) return;
-            //assuming the alert isn' dismissed
-            let dismissed = false
-            for (let i = 0; i < dismissedAlerts.length; i++) {
-                //if the alert is present, it was dismissed, therefore set dismissed to true and exit for
-                if (alertId == dismissedAlerts[i]) {
-                    dismissed = true
-                    break;
-                }
-            }
-            //if alert isn't dismissed, show it
-            if (!dismissed) $(el).show()
-        })
+	function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
     }
-
-    //fires if there are alerts on page
-    if ($('.alert').length > 0) {
-        $('.alert').on('click', '.close', function (e) {
-            e.preventDefault()
-            //get alert element
-            let parent = $(this).parent()
-            //get alert ID
-            let id = $(parent).attr('id')
-            //return if no ID is defined
-            if (!id) return;
-            //get all dismissed alerts, based om localStorage. The document title is in key to prevent long data arrays
-            if (!localStorage.getItem(`dismissedAlerts_${document.title}`)) {
-                //if storage doesn't exists, add it with the dismissed alert ID
-                localStorage.setItem(`dismissedAlerts_${document.title}`, JSON.stringify([id]))
-            } else {
-                //localStorage exists, so get it and parse it to an array
-                let alerts = JSON.parse(localStorage.getItem(`dismissedAlerts_${document.title}`))
-                //assuming the alert isn't already dismissed
-                let alreadyDismissed = false
-                //loop trough dismissed alerts and find out if there is a double
-                alerts.map(alertId => {
-                    //if id is already there, return
-                    if (alertId == id) {
-                        alreadyDismissed = true
-                        return;
-                    }
-                })
-                //if id alert ID isn't added, so add it an store the new dismissed alerts array
-                if (!alreadyDismissed) {
-                    alerts.push(id)
-                    localStorage.setItem(`dismissedAlerts_${document.title}`, JSON.stringify(alerts))
-                }
-            }
-        })
-
-        //show all the undismissed alerts
-        showUnDismissedAlerts()
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
     }
+    return null;
+}
+
+function eraseCookie(name) {   
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function cookieConsent() {
+    if (!getCookie('allowCookies')) {
+        $('.toast').toast('show')
+    }
+}
+
+$('#btnDeny').click(()=>{
+    eraseCookie('allowCookies')
+    $('.toast').toast('hide')
+})
+
+$('#btnAccept').click(()=>{
+    setCookie('allowCookies','1',7)
+    $('.toast').toast('hide')
+})
+
+// load
+cookieConsent()
+
+// for demo / testing only
+$('#btnReset').click(()=>{
+    // clear cookie to show toast after acceptance
+    eraseCookie('allowCookies')
+    $('.toast').toast('show')
+})
+
+
+
+
   </script>
 
 </body>
