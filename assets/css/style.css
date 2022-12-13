@@ -1922,3 +1922,53 @@ section {
 .btn-modal:hover {
 	background: #9bde7e;
 }
+
+.btn-custom {
+	padding: 8px 20px;
+    margin-left: 15px;
+	margin-right: 15px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    background: #1c6e7d;
+	border: none;
+    font-weight: 600;
+}
+
+.btn-custom:hover {
+	color: #fff;
+	background: #9bde7e;
+	border: none;
+}
+
+.btn-custom-active {
+	padding: 8px 20px;
+    margin-left: 15px;
+	margin-right: 15px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    background: #9bde7e;
+	border: none;
+    font-weight: 600;
+}
+
+.btn-disabled {
+	padding: 8px 20px;
+    margin-left: 15px;
+	margin-right: 15px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    background: #grey;
+	border: none;
+    font-weight: 600;
+}
+
+.bg-custom {
+	background: #444444;
+}
+
+.mb-4 {
+	margin-bottom: 1.8rem!important;
+}

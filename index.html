@@ -53,19 +53,20 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Pagrindinis</a></li>
           <li><a class="nav-link scrollto" href="#apie">Apie mane</a></li>
-		  <li class="dropdown"><a class="scrollto" href="#paslaugos"><span>Paslaugos</span> <i class="bi bi-chevron-down"></i></a>
+		  <li><a class="nav-link scrollto" href="#paslaugos">Paslaugos</a></li>
+		  <li class="dropdown"><a class="scrollto" href="sprendimu-katalogas"><span>Sprendimų katalogas</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Patalpų apsaugos sistemos</a></li>
-              <li><a href="#">Vaizdo stebėjimo sistemos</a></li>
-              <li><a href="#">Vaizdo telefonspynės</a></li>
-              <li><a href="#">Išmanių namų sprendimai</a></li>
-			  <li><a href="#">Interneto tinklai</a></li>
-			  <li><a href="#">Silpnų srovių brėžiniai</a></li>
+              <li><a href="apsaugos-sistema">Patalpų apsaugos sistemos</a></li>
+              <li><a href="vaizdo-stebejimo-sistema">Vaizdo stebėjimo sistemos</a></li>
+              <li><a href="telefonspyne-ieigos-kontrole">Vaizdo telefonspynės</a></li>
+              <li><a href="ismaniu-namu-sprendimai">Išmanių namų sprendimai</a></li>
+			  <!-- <li><a href="interneto-tinklai">Interneto tinklai</a></li> -->
+			  <li><a href="silpnu-sroviu-breziniai">Silpnų srovių brėžiniai</a></li>
             </ul>
           </li>
           <li><a class="nav-link   scrollto" href="#atsiliepimai">Atsiliepimai</a></li>
           <li><a class="nav-link scrollto" href="#kontaktai">Kontaktai</a></li>
-          <li><a class="getstarted scrollto" href="gauti-pasiulyma.html">Gauti pasiūlymą</a></li>
+          <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal" data-bs-target="#pasiulymas">Gauti pasiūlymą</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -82,12 +83,12 @@
           <h1>Išmanūs namų apsaugos sprendimai</h1>
           <h2>Profesionalių sistemų projektavimo ir montavimo darbai</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#kontaktai" class="btn-get-started scrollto">Susisiekite</a>
-            <!--<a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+            <!-- <a href="#kontaktai" class="btn-get-started scrollto">Susisiekite</a> -->
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/straipsniai.jpg" class="img-fluid rounded" alt="">
+          <img src="assets/img/hero.png" class="img-fluid rounded" alt="">
         </div>
       </div>
     </div>
@@ -168,7 +169,7 @@
           </div>
         </div>
 		
-		<div style="max-width: 70%;" class="row content offset-md-2 mt-5">
+		<div class="row content mt-5">
 			<div class="col-lg-3 col-sm-6">
 				<div style="max-width: 75%;" class="d-flex align-items-center justify-content-center">
 					<img src="assets/img/Avansas.png" class="img-fluid" alt="">
@@ -263,7 +264,7 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
             <h3>Gaukite pasiūlymą</h3>
-            <p> Užpildykite formą, kuri atspindės pradinius Jūsų poreikius. Su šia informacija galėsime tinkamai pradėti bendravimą bei Jūsų saugių namų realizavimą!</p>
+            <p> Jūsų namai gali tapti saugūs ir išmanūs! Pasirinkite Jus dominančias temas ir gaukite pasiūlymą!</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="#" data-bs-toggle="modal" data-bs-target="#pasiulymas">Gauti pasiūlymą</a>
@@ -307,7 +308,7 @@
 
               <input type="hidden" class="form-control" name="subject" value="uzsakymas" id="subject">
 			  
-			  <div class="form-group mt-3">
+			  <div class="form-group mt-3 mb-2">
 				<label><b>Pasirinkite Jus dominančius sprendimus:</b></label>
 			  </div>
               <div class="form-group">
@@ -349,12 +350,12 @@
 						</div>
 					  
               </div>
-              <!-- <div class="text-center"><button type="submit">Siųsti</button></div> -->
-            </form>
+            
 			  </div>
 			  <div class="modal-footer">
 				<button type="submit" class="btn-modal">Siųsti</button>
 			  </div>
+			</form>
 			</div>
 		  </div>
 		</div>
@@ -1130,31 +1131,32 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Naudingos nuorodos</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Pagrindinis</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Apie mane</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Paslaugos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Atsiliepimai</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Pagrindinis</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#apie">Apie mane</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#paslaugos">Paslaugos</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="sprendimu-katalogas">Sprendimų katalogas</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#atsiliepimai">Atsiliepimai</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Paslaugos</h4>
+            <h4>Sprendimų katalogas</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Patalpų apsaugos sistemos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Vaizdo stebėjimo sistemos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Vaizdo telefonspynių sistemos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Išmanių namų sprendimai</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Interneto tinklų sistemos</a></li>
-			  <li><i class="bx bx-chevron-right"></i> <a href="#">Silpnų srovių brėžinių ruošimas</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="apsaugos-sistema">Patalpų apsaugos sistemos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="vaizdo-stebejimo-sistema">Vaizdo stebėjimo sistemos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="telefonspyne-ieigos-kontrole">Vaizdo telefonspynių sistemos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="ismaniu-namu-sprendimai">Išmanių namų sprendimai</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="disabled" href="interneto-tinklai">Interneto tinklų sistemos</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="silpnu-sroviu-breziniai">Silpnų srovių brėžinių ruošimas</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Soc. tinklai</h4>
             <div class="social-links mt-3">
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://www.facebook.com/elektronine.apsauga" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/elektronine.apsauga/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/giedrius-alisauskas/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
 
@@ -1192,6 +1194,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   
+  <!-- Success Modal -->
   <script>
 	$(document).ready(function() {
 
