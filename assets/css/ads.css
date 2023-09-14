@@ -24,6 +24,10 @@
 
 /*End of BG*/
 
+#ads .container {
+  padding-top: 72px;
+}
+
 #ads h1 {
   margin: 0 0 10px 0;
   font-size: 48px;
