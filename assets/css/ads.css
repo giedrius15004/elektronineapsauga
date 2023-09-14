@@ -20,12 +20,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  min-height: 902px;
 }
 
 /*End of BG*/
 
 #ads .container {
-  padding-top: 72px;
+  padding-top: 1px;
 }
 
 #ads h1 {
