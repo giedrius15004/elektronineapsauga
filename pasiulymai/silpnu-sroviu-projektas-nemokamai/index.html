@@ -10,7 +10,11 @@
   <meta content="Norint tinkamai paruošti silpnų srovių projektą, reikia išsamaus baldų išdėstymo bei elektros instaliacijos projektų, o jiems nesant - apsižiūrėjimo vietoje. Projektas ruošiamas vieno kliento vienam objektui iki ~200 kv. m. Esant poreikiui, apsilankau objekte, kuris yra nutolęs iki 100 km nuo Vilniaus." name="description">
   
   <script>
-	window.scrollTo(0, 0);
+	history.scrollRestoration = "manual";
+
+$(window).on('beforeunload', function(){
+      $(window).scrollTop(0);
+});
   </script>
 
 <!-- Google Tag Manager -->
