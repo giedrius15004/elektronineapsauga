@@ -1999,3 +1999,13 @@ section {
 	background: #9bde7e;
 	color: #2f4858;
 }
+
+#katalogas {
+  width: 100%;
+  height: 20vh;
+  background-image: url("../../assets/img/vss-ad1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
